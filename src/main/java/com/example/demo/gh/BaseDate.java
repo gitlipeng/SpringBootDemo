@@ -8,6 +8,7 @@ public class BaseDate {
     public static List<P310> p310List = new ArrayList<>();
     public static List<P311> p311List = new ArrayList<>();
     public static final BigDecimal P1 = new BigDecimal("0.461526");
+    public static final double P2 = 0.461526;
 
     static {
         p310List.add(new P310(0	,	-9.69276865	));
