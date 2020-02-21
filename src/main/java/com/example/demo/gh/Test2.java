@@ -6,16 +6,17 @@ import java.text.DecimalFormat;
 public class Test2 {
     DecimalFormat df = new DecimalFormat("#.##");
     public static void main(String[] args) {
+        double allCount=0;
         DecimalFormat df = new DecimalFormat("#.##");
         Test2 test = new Test2();
-        double result=0;
         long start = System.currentTimeMillis();
-        for(int i = 0; i < 10000; i++){
-            result = test.getHanZhi(160,1.23);
+        for(int i = 0; i < 1; i++){
+            double result = test.getHanZhi(160,1.23);
+            allCount = allCount + result;
         }
         long end = System.currentTimeMillis();
         System.out.println("耗时：" + (end - start));
-        System.out.println("result : " + df.format(result));
+        System.out.println("result : " + allCount);
     }
 
     public double getHanZhi(double c, double mpa){
