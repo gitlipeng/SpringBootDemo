@@ -4,7 +4,18 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 123456
-
+    redis:
+      database: 0
+      host: 192.168.188.101
+      port: 6379
+      password:
+      jedis:
+          pool:
+              max-active: 100
+              max-idle: 3
+              max-wait: -1
+              min-idle: 0
+      timeout: 1000
 mapper:
   mappers:
     - tk.mybatis.mapper.common.Mapper

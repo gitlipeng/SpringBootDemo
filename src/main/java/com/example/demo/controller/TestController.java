@@ -5,6 +5,7 @@ import cn.hutool.http.HttpUtil;
 import com.example.demo.entity.Person;
 import com.example.demo.mappper.PersonMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,8 @@ import java.util.List;
 public class TestController {
     @Autowired
     PersonMapper personMapper;
+    @Autowired
+    RedisTemplate redisTemplate;
     @GetMapping("/test")
     public void test() {
         Person person = new Person();
@@ -29,4 +32,15 @@ public class TestController {
 //
 //        System.out.println(httpResponse.body());
     }
+
+
+    @GetMapping("/redisTest")
+    public void redisTest() {
+        redisTemplate.opsForValue().set("name", "lipeng");
+        Object name = redisTemplate.opsForValue().get("name");
+        System.out.println(name);
+
+    }
+
+
 }
